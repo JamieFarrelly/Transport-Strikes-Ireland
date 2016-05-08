@@ -80,13 +80,14 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = Calendar.getInstance();
         String todaysDate = fmt.format(calendar.getTime());
-        todaysDate = "30-05-2016"; //testing
+        //todaysDate = "30-05-2016"; //testing
 
         try {
             Date dateToday = fmt.parse(todaysDate);
             Date dateNextStrike = fmt.parse(nextStrike);
 
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            calendar.setTime(dateToday);
+            calendar.add(Calendar.DATE, 1);
             Date dateTomorrow = calendar.getTime();
 
             if (dateToday.equals(dateNextStrike)) {
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
             // the API call will return a date in the past if there's no Luas strikes planned
             if (dateNextStrike.before(dateToday)) {
-                tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), R.string.no_strike_planned));
+                tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), getString(R.string.no_strike_planned)));
             } else if (!dateToday.equals(dateNextStrike)){
                 // only show the next strike date if there's no strike today, makes no sense to show
                 // that there's a strike today and also have it as the next strike date
