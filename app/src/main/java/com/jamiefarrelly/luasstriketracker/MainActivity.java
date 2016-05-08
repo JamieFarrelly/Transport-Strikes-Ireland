@@ -13,28 +13,38 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
 
+    @Bind(R.id.fabUp)
+    FloatingActionButton fabUp;
+    @Bind(R.id.fabDown)
+    FloatingActionButton fabDown;
+    @Bind(R.id.ivSmileOrSad)
+    ImageView ivSmileOrSad;
+    @Bind(R.id.tvOnStrike)
+    TextView tvOnStrike;
+    @Bind(R.id.tvNextStrikeDate)
+    TextView tvNextStrikeDate;
+    @Bind(R.id.tvErrorMessage)
+    TextView tvErrorMessage;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fabUp = (FloatingActionButton) findViewById(R.id.fabUp);
-        FloatingActionButton fabDown = (FloatingActionButton) findViewById(R.id.fabDown);
-        ImageView ivSmileOrSad = (ImageView) findViewById(R.id.ivSmileOrSad);
-        TextView tvOnStrike = (TextView) findViewById(R.id.tvOnStrike);
-        TextView tvNextStrikeDate = (TextView) findViewById(R.id.tvNextStrikeDate);
-        TextView tvErrorMessage = (TextView) findViewById(R.id.tvErrorMessage);
-
 
         fabUp.setOnClickListener(new View.OnClickListener() {
             @Override
