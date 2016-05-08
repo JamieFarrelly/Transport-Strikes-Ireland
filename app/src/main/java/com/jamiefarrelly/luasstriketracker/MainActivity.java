@@ -59,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         String apiResponse = "";
         String nextStrike = "";
         try {
@@ -111,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
         if (apiResponse == null || apiResponse.equals("ERROR")) {
             ivSmileOrSad.setImageResource(R.drawable.sad);
             tvErrorMessage.setVisibility(View.VISIBLE);
+        } else {
+            tvErrorMessage.setVisibility(View.GONE);
         }
-
     }
 }
