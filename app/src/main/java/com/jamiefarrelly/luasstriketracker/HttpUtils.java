@@ -16,8 +16,8 @@ public class HttpUtils extends AsyncTask<Void, Void, String> {
     private static final String API_URL = "INSERT_YOUR_URL_HERE";
 
     protected void onPreExecute() {
+        //TODO: progress bar
         //progressBar.setVisibility(View.VISIBLE);
-        //responseView.setText("");
     }
 
     protected String doInBackground(Void... urls) {
@@ -49,8 +49,9 @@ public class HttpUtils extends AsyncTask<Void, Void, String> {
         if(response == null) {
             response = "ERROR";
         }
-        //progressBar.setVisibility(View.GONE);
+
         Log.i(Constants.LOG, response);
-        //responseView.setText(response);
+
+        //progressBar.setVisibility(View.GONE);
     }
 }

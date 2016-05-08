@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = Calendar.getInstance();
         String todaysDate = fmt.format(calendar.getTime());
-        //todaysDate = "30-05-2016"; //testing
 
         try {
             Date dateToday = fmt.parse(todaysDate);
