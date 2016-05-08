@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvNextStrikeDate;
     @Bind(R.id.tvErrorMessage)
     TextView tvErrorMessage;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
             // the API call will return a date in the past if there's no Luas strikes planned
             if (dateNextStrike.before(dateToday)) {
                 tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), R.string.no_strike_planned));
-            } else {
+            } else if (!dateToday.equals(dateNextStrike)){
+                // only show the next strike date if there's no strike today, makes no sense to show
+                // that there's a strike today and also have it as the next strike date
                 tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), nextStrike));
             }
 
