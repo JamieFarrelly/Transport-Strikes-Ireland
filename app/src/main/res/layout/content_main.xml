@@ -8,12 +8,38 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/luas"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.jamiefarrelly.luasstriketracker.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <ImageView
+        android:id="@+id/ivSmileOrSad"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/smile"/>
+
     <TextView
+        android:id="@+id/tvOnStrike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_below="@+id/ivSmileOrSad"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        tools:text="@string/on_strike" />
+
+    <TextView
+        android:id="@+id/tvNextStrikeDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvOnStrike"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        tools:text="@string/next_strike" />
 </RelativeLayout>

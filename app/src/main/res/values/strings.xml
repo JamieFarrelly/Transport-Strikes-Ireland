@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Luas Strike Tracker</string>
     <string name="action_settings">Settings</string>
+    <string name="on_strike">The feckers are on strike today!</string>
+    <string name="not_on_strike">Good news, no strikes today!</string>
+    <string name="on_strike_tomorrow">Not on strike today, but are tomorrow!</string>
+    <string name="fab_up">Congrats, that\'s how a luas driver goes forward!</string>
+    <string name="fab_down">Ohhhh well done, that\'s how a luas stops!</string>
+    <string name="next_strike">Next Strike: %s</string>
+    <string name="no_strike_planned">None currently planned</string>
 </resources>

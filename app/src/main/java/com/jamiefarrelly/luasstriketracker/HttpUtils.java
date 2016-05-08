@@ -13,7 +13,7 @@ import java.net.URL;
  */
 public class HttpUtils extends AsyncTask<Void, Void, String> {
 
-    private static final String API_URL = "https://brilliant-torch-1709.firebaseio.com/Info.json";
+    private static final String API_URL = "INSERT_YOUR_URL_HERE";
 
     protected void onPreExecute() {
         //progressBar.setVisibility(View.VISIBLE);
@@ -47,7 +47,7 @@ public class HttpUtils extends AsyncTask<Void, Void, String> {
 
     protected void onPostExecute(String response) {
         if(response == null) {
-            response = "THERE WAS AN ERROR";
+            response = "ERROR";
         }
         //progressBar.setVisibility(View.GONE);
         Log.i(Constants.LOG, response);
