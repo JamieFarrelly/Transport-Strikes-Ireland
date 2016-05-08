@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Luas Strike Tracker</string>
-    <string name="action_settings">Settings</string>
     <string name="on_strike">The feckers are on strike today!</string>
     <string name="not_on_strike">Good news, no strikes today!</string>
     <string name="on_strike_tomorrow">Not on strike today, but are tomorrow!</string>
