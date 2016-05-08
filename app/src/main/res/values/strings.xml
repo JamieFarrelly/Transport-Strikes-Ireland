@@ -8,4 +8,5 @@
     <string name="fab_down">Ohhhh well done, that\'s how a luas stops!</string>
     <string name="next_strike">Next Strike: %s</string>
     <string name="no_strike_planned">None currently planned</string>
+    <string name="error_message">Something went wrong, is your internet on?</string>
 </resources>

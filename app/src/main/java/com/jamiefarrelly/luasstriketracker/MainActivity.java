@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setBackgroundDrawable(null);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView ivSmileOrSad = (ImageView) findViewById(R.id.ivSmileOrSad);
         TextView tvOnStrike = (TextView) findViewById(R.id.tvOnStrike);
         TextView tvNextStrikeDate = (TextView) findViewById(R.id.tvNextStrikeDate);
+        TextView tvErrorMessage = (TextView) findViewById(R.id.tvErrorMessage);
 
 
         fabUp.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +97,11 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (ParseException e) {
             Log.d(Constants.LOG, "Couldn't parse a date: " + e.getMessage());
+        }
+
+        if (apiResponse == null || apiResponse.equals("ERROR")) {
+            ivSmileOrSad.setImageResource(R.drawable.sad);
+            tvErrorMessage.setVisibility(View.VISIBLE);
         }
 
     }
