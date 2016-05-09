@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabUp;
     @Bind(R.id.fabDown)
     FloatingActionButton fabDown;
-    @Bind(R.id.ivSmileOrSad)
-    ImageView ivSmileOrSad;
+    @Bind(R.id.tvSmileOrSad)
+    TextView tvSmileOrSad;
     @Bind(R.id.tvOnStrike)
     TextView tvOnStrike;
     @Bind(R.id.tvNextStrikeDate)
@@ -92,11 +92,11 @@ public class MainActivity extends AppCompatActivity {
             if (dateToday.equals(dateNextStrike)) {
                 tvOnStrike.setText(getString(R.string.on_strike));
                 tvOnStrike.setTextColor(this.getResources().getColor(R.color.red));
-                ivSmileOrSad.setImageResource(R.drawable.sad);
+                tvSmileOrSad.setText(":(");
             } else if (dateTomorrow.equals(dateNextStrike)) {
                 tvOnStrike.setText(getString(R.string.on_strike_tomorrow));
                 tvOnStrike.setTextColor(this.getResources().getColor(R.color.red));
-                ivSmileOrSad.setImageResource(R.drawable.sad);
+                tvSmileOrSad.setText(":(");
             } else {
                 tvOnStrike.setText(getString(R.string.not_on_strike));
             }
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (apiResponse == null || apiResponse.equals("ERROR")) {
-            ivSmileOrSad.setImageResource(R.drawable.sad);
+            tvSmileOrSad.setText(":(");
             tvErrorMessage.setVisibility(View.VISIBLE);
         } else {
             tvErrorMessage.setVisibility(View.GONE);
