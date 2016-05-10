@@ -7,8 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.beardedhen.androidbootstrap.FontAwesomeText;
 
 import org.json.JSONObject;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.fabDown)
     FloatingActionButton fabDown;
     @Bind(R.id.tvSmileOrSad)
-    TextView tvSmileOrSad;
+    FontAwesomeText tvSmileOrSad;
     @Bind(R.id.tvOnStrike)
     TextView tvOnStrike;
     @Bind(R.id.tvNextStrikeDate)
@@ -91,12 +92,14 @@ public class MainActivity extends AppCompatActivity {
 
             if (dateToday.equals(dateNextStrike)) {
                 tvOnStrike.setText(getString(R.string.on_strike));
+                tvSmileOrSad.setIcon("fa-frown-o");
                 tvOnStrike.setTextColor(this.getResources().getColor(R.color.red));
-                tvSmileOrSad.setText(":(");
+                tvSmileOrSad.setTextColor(this.getResources().getColor(R.color.red));
             } else if (dateTomorrow.equals(dateNextStrike)) {
                 tvOnStrike.setText(getString(R.string.on_strike_tomorrow));
+                tvSmileOrSad.setIcon("fa-frown-o");
+                tvSmileOrSad.setTextColor(this.getResources().getColor(R.color.red));
                 tvOnStrike.setTextColor(this.getResources().getColor(R.color.red));
-                tvSmileOrSad.setText(":(");
             } else {
                 tvOnStrike.setText(getString(R.string.not_on_strike));
             }
@@ -115,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (apiResponse == null || apiResponse.equals("ERROR")) {
-            tvSmileOrSad.setText(":(");
+            tvSmileOrSad.setIcon("fa-frown-o");
+            tvSmileOrSad.setTextColor(this.getResources().getColor(R.color.red));
             tvErrorMessage.setVisibility(View.VISIBLE);
         } else {
             tvErrorMessage.setVisibility(View.GONE);
