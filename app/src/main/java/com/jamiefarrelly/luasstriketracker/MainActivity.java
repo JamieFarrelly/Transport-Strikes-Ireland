@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.FontAwesomeText;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherAdView;
 
 import org.json.JSONObject;
 
@@ -59,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        PublisherAdView mPublisherAdView = (PublisherAdView) findViewById(R.id.publisherAdView);
+        PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
+        mPublisherAdView.loadAd(adRequest);
 
     }
 
