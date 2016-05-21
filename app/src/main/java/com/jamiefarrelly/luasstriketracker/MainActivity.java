@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvNextStrikeDate;
     @Bind(R.id.tvErrorMessage)
     TextView tvErrorMessage;
+    @Bind(R.id.publisherAdView)
+    PublisherAdView mPublisherAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        PublisherAdView mPublisherAdView = (PublisherAdView) findViewById(R.id.publisherAdView);
         PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
         mPublisherAdView.loadAd(adRequest);
 
@@ -74,11 +75,14 @@ public class MainActivity extends AppCompatActivity {
 
         String apiResponse = "";
         String nextStrikeFormatted = "";
+        // sometimes the strikes are only for a few hours, eg. 3pm - 7pm
+        String strikeHours = "";
         try {
             apiResponse = new HttpUtils().execute().get();
 
-            JSONObject mainObject = new JSONObject(apiResponse);
-            nextStrikeFormatted = mainObject.getString("nextStrike");
+            JSONObject strikeInformation = new JSONObject(apiResponse);
+            nextStrikeFormatted = strikeInformation.getString("nextStrike");
+            strikeHours = strikeInformation.getString("strikeHours");
         } catch (Exception e) {
             Log.d(Constants.LOG, e.getMessage());
         }
@@ -97,17 +101,20 @@ public class MainActivity extends AppCompatActivity {
             Date tomorrow = calendar.getTime();
 
             if (today.equals(nextStrike)) {
-                tvOnStrike.setText(getString(R.string.on_strike));
+                tvOnStrike.setText(String.format(getString(R.string.on_strike), strikeHours));
                 tvSmileOrSad.setIcon("fa-frown-o");
                 tvOnStrike.setTextColor(this.getResources().getColor(R.color.red));
                 tvSmileOrSad.setTextColor(this.getResources().getColor(R.color.red));
+
             } else if (tomorrow.equals(nextStrike)) {
                 tvOnStrike.setText(getString(R.string.on_strike_tomorrow));
                 tvSmileOrSad.setIcon("fa-frown-o");
                 tvSmileOrSad.setTextColor(this.getResources().getColor(R.color.red));
                 tvOnStrike.setTextColor(this.getResources().getColor(R.color.red));
+
             } else {
                 tvOnStrike.setText(getString(R.string.not_on_strike));
+
             }
 
             // the API call will return a date in the past if there's no Luas strikes planned
