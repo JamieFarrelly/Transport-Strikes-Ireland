@@ -73,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         String apiResponse = "";
-        String nextStrike = "";
+        String nextStrikeFormatted = "";
         try {
             apiResponse = new HttpUtils().execute().get();
 
             JSONObject mainObject = new JSONObject(apiResponse);
-            nextStrike = mainObject.getString("nextStrike");
+            nextStrikeFormatted = mainObject.getString("nextStrike");
         } catch (Exception e) {
             Log.d(Constants.LOG, e.getMessage());
         }
@@ -86,22 +86,22 @@ public class MainActivity extends AppCompatActivity {
         // this is the format that the date will be returned in from the API call
         SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = Calendar.getInstance();
-        String todaysDate = fmt.format(calendar.getTime());
+        String todayFormatted = fmt.format(calendar.getTime());
 
         try {
-            Date dateToday = fmt.parse(todaysDate);
-            Date dateNextStrike = fmt.parse(nextStrike);
+            Date today = fmt.parse(todayFormatted);
+            Date nextStrike = fmt.parse(nextStrikeFormatted);
 
-            calendar.setTime(dateToday);
+            calendar.setTime(today);
             calendar.add(Calendar.DATE, 1);
-            Date dateTomorrow = calendar.getTime();
+            Date tomorrow = calendar.getTime();
 
-            if (dateToday.equals(dateNextStrike)) {
+            if (today.equals(nextStrike)) {
                 tvOnStrike.setText(getString(R.string.on_strike));
                 tvSmileOrSad.setIcon("fa-frown-o");
                 tvOnStrike.setTextColor(this.getResources().getColor(R.color.red));
                 tvSmileOrSad.setTextColor(this.getResources().getColor(R.color.red));
-            } else if (dateTomorrow.equals(dateNextStrike)) {
+            } else if (tomorrow.equals(nextStrike)) {
                 tvOnStrike.setText(getString(R.string.on_strike_tomorrow));
                 tvSmileOrSad.setIcon("fa-frown-o");
                 tvSmileOrSad.setTextColor(this.getResources().getColor(R.color.red));
@@ -111,12 +111,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // the API call will return a date in the past if there's no Luas strikes planned
-            if (dateNextStrike.before(dateToday)) {
+            if (nextStrike.before(today)) {
                 tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), getString(R.string.no_strike_planned)));
-            } else if (!dateToday.equals(dateNextStrike)){
+            } else if (!today.equals(nextStrike)){
                 // only show the next strike date if there's no strike today, makes no sense to show
                 // that there's a strike today and also have it as the next strike date
-                tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), nextStrike));
+                tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), nextStrikeFormatted));
             }
 
         } catch (ParseException e) {
