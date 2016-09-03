@@ -20,24 +20,24 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.fabUp)
+    @BindView(R.id.fabUp)
     FloatingActionButton fabUp;
-    @Bind(R.id.fabDown)
+    @BindView(R.id.fabDown)
     FloatingActionButton fabDown;
-    @Bind(R.id.tvSmileOrSad)
+    @BindView(R.id.tvSmileOrSad)
     FontAwesomeText tvSmileOrSad;
-    @Bind(R.id.tvOnStrike)
+    @BindView(R.id.tvOnStrike)
     TextView tvOnStrike;
-    @Bind(R.id.tvNextStrikeDate)
+    @BindView(R.id.tvNextStrikeDate)
     TextView tvNextStrikeDate;
-    @Bind(R.id.tvErrorMessage)
+    @BindView(R.id.tvErrorMessage)
     TextView tvErrorMessage;
-    @Bind(R.id.publisherAdView)
+    @BindView(R.id.publisherAdView)
     PublisherAdView mPublisherAdView;
 
     @Override
