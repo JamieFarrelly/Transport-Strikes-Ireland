@@ -22,6 +22,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,22 +48,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        fabUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, R.string.fab_up, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        fabDown.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, R.string.fab_down, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
         mPublisherAdView.loadAd(adRequest);
@@ -137,5 +122,17 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tvErrorMessage.setVisibility(View.GONE);
         }
+    }
+
+    @OnClick(R.id.fabUp)
+    public void fabUpAction(){
+        Snackbar.make(getCurrentFocus(), R.string.fab_up, Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
+
+    @OnClick(R.id.fabDown)
+    public void fabDownAction(){
+        Snackbar.make(getCurrentFocus(), R.string.fab_down, Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
     }
 }
