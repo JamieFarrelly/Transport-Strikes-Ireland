@@ -1,0 +1,13 @@
+<tabs>
+    <tab
+        id="@+id/tab_luas"
+        icon="@mipmap/ic_tram_black_24dp"
+        title="Luas Strikes"
+        barColorWhenSelected="#aeb1b0"/>
+    <tab
+        id="@+id/tab_dublin_bus"
+        icon="@mipmap/ic_directions_bus_black_24dp"
+        title="Dublin Bus Strikes"
+        barColorWhenSelected="#ead21a"/>
+
+</tabs>

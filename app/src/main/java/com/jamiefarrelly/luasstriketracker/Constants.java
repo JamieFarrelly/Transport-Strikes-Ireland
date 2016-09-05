@@ -6,4 +6,6 @@ package com.jamiefarrelly.luasstriketracker;
 public class Constants {
 
     public static final String LOG = "LuasStrikeTracker";
+
+    public static final String BASE_URL = "https://brilliant-torch-1709.firebaseio.com/";
 }
