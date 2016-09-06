@@ -110,12 +110,10 @@ public class MainActivity extends AppCompatActivity {
             if(mBottomBar.getCurrentTabPosition()==0){
                 nextStrikeDate = model.getNextLuasStrikeDate();
                 nextStrikeHours = model.getNextLuasStrikeHours();
-                System.out.println(nextStrikeDate + "   "+nextStrikeHours);
             }
             else if(mBottomBar.getCurrentTabPosition()==1){
                 nextStrikeDate = model.getNextDublinBusStrikeDate();
                 nextStrikeHours = model.getNextDublinBusStrikeHours();
-                System.out.println(nextStrikeDate + "   "+nextStrikeHours);
 
             }
 
