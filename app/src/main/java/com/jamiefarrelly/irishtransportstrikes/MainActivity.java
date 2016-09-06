@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,8 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.rlMain)
+    RelativeLayout rlMain;
     @BindView(R.id.tvSmileOrSad)
     FontAwesomeText tvSmileOrSad;
     @BindView(R.id.tvOnStrike)
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvNextStrikeDate;
     @BindView(R.id.tvErrorMessage)
     TextView tvErrorMessage;
-    @BindView(R.id.publisherAdView)
+    @BindView(R.id.publisherAdView) // not used at the moment
     PublisherAdView mPublisherAdView;
     @BindView(R.id.bottomBar)
     BottomBar mBottomBar;
@@ -110,14 +113,17 @@ public class MainActivity extends AppCompatActivity {
 
                 nextStrikeDate = model.getNextLuasStrikeDate();
                 nextStrikeHours = model.getNextLuasStrikeHours();
+                rlMain.setBackgroundDrawable(getResources().getDrawable(R.drawable.luas));
             } else if(mBottomBar.getCurrentTabPosition() == 1){
 
                 nextStrikeDate = model.getNextDublinBusStrikeDate();
                 nextStrikeHours = model.getNextDublinBusStrikeHours();
+                rlMain.setBackgroundDrawable(getResources().getDrawable(R.drawable.dublin_bus));
+
             }
 
             // this is the format that the date will be returned in from the API call
-            SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
+            SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
             Calendar calendar = Calendar.getInstance();
             String todayFormatted = fmt.format(calendar.getTime());
 
@@ -143,16 +149,19 @@ public class MainActivity extends AppCompatActivity {
 
                 } else {
                     tvOnStrike.setText(getString(R.string.not_on_strike));
+                    tvSmileOrSad.setIcon("fa-smile-o");
+                    tvSmileOrSad.setTextColor(this.getResources().getColor(R.color.green));
+                    tvOnStrike.setTextColor(this.getResources().getColor(R.color.green));
 
                 }
 
                 // the API call will return a date in the past if there's no strikes planned
                 if (nextStrike.before(today)) {
                     tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), getString(R.string.no_strike_planned)));
-                } else if (!today.equals(nextStrike)){
-                    // only show the next strike date if there's no strike today, makes no sense to show
-                    // that there's a strike today and also have it as the next strike date
+                    tvNextStrikeDate.setTextColor(this.getResources().getColor(R.color.green));
+                } else {
                     tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), fmt.format(nextStrike)));
+                    tvNextStrikeDate.setTextColor(this.getResources().getColor(R.color.red));
                 }
 
             } catch (ParseException e) {

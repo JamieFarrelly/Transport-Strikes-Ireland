@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Irish Transport Strikes</string>
+    <string name="app_name">Transport Strikes Ireland</string>
     <string name="on_strike">The feckers are on strike today! %s</string>
     <string name="not_on_strike">Good news, no strikes today!</string>
     <string name="on_strike_tomorrow">Not on strike today, but are tomorrow!</string>
