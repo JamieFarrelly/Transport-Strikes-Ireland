@@ -24,10 +24,7 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
-    compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
-    }
+
 }
 
 dependencies {
@@ -43,7 +40,7 @@ dependencies {
     //Retrofit Added to simplify network calls and JSON parsing
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
 
     //Bottom Bar
     compile 'com.roughike:bottom-bar:2.0.2'
@@ -54,6 +51,3 @@ dependencies {
     compile 'com.beardedhen:androidbootstrap:1.2.3'
     compile 'com.google.android.gms:play-services-ads:9.4.0'
 }
-
-apply plugin: 'me.tatarka.retrolambda'
-

@@ -169,12 +169,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void setupBottomBar(){
 
-        mBottomBar.setOnTabSelectListener(tabId -> {
-            if (tabId == R.id.tab_luas) {
-                retrieveStrikeInfo();
-            }
-            else if(tabId == R.id.tab_dublin_bus){
-                retrieveStrikeInfo();
+        mBottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_luas) {
+                    retrieveStrikeInfo();
+                }
+                else if(tabId == R.id.tab_dublin_bus){
+                    retrieveStrikeInfo();
+                }
             }
         });
     }
