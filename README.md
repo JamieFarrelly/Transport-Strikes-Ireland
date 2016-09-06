@@ -1,3 +1,5 @@
+TODO: Update readme after adding in Dublin Bus. Thanks for the help: Thanks for the help https://github.com/Nodstuff
+
 # Luas Strike Information Android App
 
 Very basic app to help people find out when the next Luas strike is in Dublin. Literally a one screen app that was quickly put together over a few hours.
