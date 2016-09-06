@@ -1,4 +1,4 @@
-package com.jamiefarrelly.luasstriketracker;
+package com.jamiefarrelly.irishtransportstrikes;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -13,11 +13,10 @@ import android.widget.Toast;
 import com.beardedhen.androidbootstrap.FontAwesomeText;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherAdView;
-import com.jamiefarrelly.luasstriketracker.interfaces.StrikeInfoAPIInterface;
-import com.jamiefarrelly.luasstriketracker.model.StrikeInfoModel;
-import com.jamiefarrelly.luasstriketracker.network.ServiceGenerator;
+import com.jamiefarrelly.irishtransportstrikes.interfaces.StrikeInfoAPIInterface;
+import com.jamiefarrelly.irishtransportstrikes.model.StrikeInfoModel;
+import com.jamiefarrelly.irishtransportstrikes.network.ServiceGenerator;
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import java.text.ParseException;
@@ -102,23 +101,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void processResults(StrikeInfoModel model){
 
-        if (model!=null) {
+        if (model != null) {
 
             String nextStrikeDate = "";
             String nextStrikeHours = "";
 
-            if(mBottomBar.getCurrentTabPosition()==0){
+            if(mBottomBar.getCurrentTabPosition() == 0){
+
                 nextStrikeDate = model.getNextLuasStrikeDate();
                 nextStrikeHours = model.getNextLuasStrikeHours();
-            }
-            else if(mBottomBar.getCurrentTabPosition()==1){
+            } else if(mBottomBar.getCurrentTabPosition() == 1){
+
                 nextStrikeDate = model.getNextDublinBusStrikeDate();
                 nextStrikeHours = model.getNextDublinBusStrikeHours();
-
             }
 
             // this is the format that the date will be returned in from the API call
-            SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy",Locale.UK);
+            SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy", Locale.UK);
             Calendar calendar = Calendar.getInstance();
             String todayFormatted = fmt.format(calendar.getTime());
 
@@ -147,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                // the API call will return a date in the past if there's no Luas strikes planned
+                // the API call will return a date in the past if there's no strikes planned
                 if (nextStrike.before(today)) {
                     tvNextStrikeDate.setText(String.format(getString(R.string.next_strike), getString(R.string.no_strike_planned)));
                 } else if (!today.equals(nextStrike)){

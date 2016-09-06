@@ -1,6 +1,6 @@
-package com.jamiefarrelly.luasstriketracker.interfaces;
+package com.jamiefarrelly.irishtransportstrikes.interfaces;
 
-import com.jamiefarrelly.luasstriketracker.model.StrikeInfoModel;
+import com.jamiefarrelly.irishtransportstrikes.model.StrikeInfoModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

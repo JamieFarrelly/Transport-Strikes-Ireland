@@ -1,4 +1,4 @@
-package com.jamiefarrelly.luasstriketracker.model;
+package com.jamiefarrelly.irishtransportstrikes.model;
 
 import lombok.Data;
 

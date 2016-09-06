@@ -1,6 +1,6 @@
-package com.jamiefarrelly.luasstriketracker.network;
+package com.jamiefarrelly.irishtransportstrikes.network;
 
-import com.jamiefarrelly.luasstriketracker.Constants;
+import com.jamiefarrelly.irishtransportstrikes.Constants;
 
 import java.io.IOException;
 

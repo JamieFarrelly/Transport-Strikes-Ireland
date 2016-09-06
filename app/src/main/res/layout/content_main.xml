@@ -9,7 +9,7 @@
     android:background="@drawable/background"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.jamiefarrelly.luasstriketracker.MainActivity"
+    tools:context="com.jamiefarrelly.irishtransportstrikes.MainActivity"
     tools:showIn="@layout/activity_main">
 
 

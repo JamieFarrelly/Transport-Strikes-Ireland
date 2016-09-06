@@ -42,4 +42,4 @@
 -dontwarn java.lang.invoke.*
 
 # class datastructures
--keep class com.jamiefarrelly.luasstriketracker.model.StrikeInfoModel { *; }
+-keep class com.jamiefarrelly.irishtransportstrikes.model.StrikeInfoModel { *; }
