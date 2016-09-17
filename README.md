@@ -7,7 +7,7 @@ The app basically makes an API call to [Firebase](https://www.firebase.com/) whi
 ```json
 {
     "nextDublinBusStrikeDate":"23-09-2016",
-    "nextDublinBusStrikeHours": "(All day)"
+    "nextDublinBusStrikeHours": "(All day)",
     "nextLuasStrikeDate":"13-05-2016",
     "nextLuasStrikeHours": "(3pm-7pm)"
 }
