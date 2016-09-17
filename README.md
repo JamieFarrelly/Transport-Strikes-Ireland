@@ -1,15 +1,15 @@
-TODO: Update readme after adding in Dublin Bus. Thanks for the help: Thanks for the help https://github.com/Nodstuff
+# Transport Strikes Ireland Android App
 
-# Luas Strike Information Android App
-
-Very basic app to help people find out when the next Luas strike is in Dublin. Literally a one screen app that was quickly put together over a few hours.
+Very basic app to help people find out when the next Luas strike or Dublin Bus strike is on. Started out as just a Luas app but now includes Dublin Bus too thanks to [Nodstuff](https://github.com/Nodstuff)
 
 The app basically makes an API call to [Firebase](https://www.firebase.com/) which returns json from the database in the format of:
 
 ```json
 {
-    "nextStrike":"13-05-2016",
-    "strikeHours": "(3pm-7pm)"
+    "nextDublinBusStrikeDate":"23-09-2016",
+    "nextDublinBusStrikeHours": "(All day)"
+    "nextLuasStrikeDate":"13-05-2016",
+    "nextLuasStrikeHours": "(3pm-7pm)"
 }
 ```
 
